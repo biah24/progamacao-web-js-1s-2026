@@ -38,7 +38,7 @@ let numeros = [1, 3.14, -7, 99, 505.67];
 console.log(numeros);
 console.log(`numeros[0]=${numeros[0]}`); //Usando índice para acessar
 console.log(`numeros[3]=${numeros[3]}`); //Começa no 0
-console.log(typeof nbumeros);
+console.log(typeof numeros);
 
 //Object - um tipo de dado onde vou ter uma coleção de atributos e valores. 
 //ex: cadastro de uma pessoa, onde tem varias informações(atributors)
