@@ -6,6 +6,8 @@ const calculadora = require(`./calculadora`);
 const app     = express();
 //Define porta da aplicação
 const PORT = 8080;
+
+
 //Cria um array para armazenar respostas ao usuario
 const LOG = [];
 
