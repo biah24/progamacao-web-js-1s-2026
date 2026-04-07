@@ -1,8 +1,6 @@
-// 1. Criar o array (igual ao "const produtos" do prof)
 let estoque = []; 
 
 function adicionar(nome, id, qtd){
-    // Simplifiquei para focar no essencial
     let produto = { 
         nome: nome, 
         id: id, 
@@ -11,7 +9,7 @@ function adicionar(nome, id, qtd){
 }
 
 function lista(){
-    return estoque; // O index.js trata de mostrar
+    return estoque; 
 }
 
 function remover(id){
@@ -30,7 +28,6 @@ function editar(id, qtd){
     }
 }
 
-// 2. EXPORTAR (Igual ao do prof, mas com os teus nomes)
 module.exports = {
     adicionar,
     lista,
