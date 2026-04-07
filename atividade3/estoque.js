@@ -1,15 +1,17 @@
-function adicionar(nome, id, qtd){
-    nome = req.params.nome;
-    id = req.params.id;
-    qtd = req.params.qtd;
+// 1. Criar o array (igual ao "const produtos" do prof)
+let estoque = []; 
 
-    return estoque.adicionar(nome, id, qtd);
+function adicionar(nome, id, qtd){
+    // Simplifiquei para focar no essencial
+    let produto = { 
+        nome: nome, 
+        id: id, 
+        qtd: qtd };
+    estoque.push(produto);
 }
 
-function listar(){
-    for (let i = 0; i < estoque.length; i++){
-        res.send(estoque[i]);
-    }
+function lista(){
+    return estoque; // O index.js trata de mostrar
 }
 
 function remover(id){
@@ -28,4 +30,10 @@ function editar(id, qtd){
     }
 }
 
-
+// 2. EXPORTAR (Igual ao do prof, mas com os teus nomes)
+module.exports = {
+    adicionar,
+    lista,
+    remover,
+    editar
+};

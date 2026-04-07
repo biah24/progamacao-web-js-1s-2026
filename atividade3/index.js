@@ -1,20 +1,22 @@
 const express = require('express');
-
 const estoque = require('./estoque');
-
 const PORT = 8080;
-
 const app = express();
 
-//const LOG = [];
 
-app.listen = (PORT, ()=>{
-    console.log('app rodando na porta ') + PORT;
+app.listen(PORT, () => {
+    console.log('App rodando na porta ' + PORT);
 });
 
-app.get('/', function(req, res){
-    res.send('<h1>Olá!<h1>');
+app.get('/', (req, res)=>{
+    let msg = "<h1>Rotas disponíveis</h1>";
+    msg     += "<p>Para cadastrar/adicionar produtos: /estoque/adicionar/:nome/:id/:qtd</p>";
+    msg     += "<p>Para listar os produtos: /estoque/lista</p>";
+    msg     += "<p>Para remover os produtos: /estoque/remover/:id</p>";
+    msg     += "<p>Para editar quantidade dos produtos: /estoque/editar/:id/:qtd</p>";
+    res.send(msg);
 });
+
 
 app.get('/estoque/adicionar/:nome/:id/:qtd', function(req, res){
     let nome = req.params.nome;
@@ -25,9 +27,9 @@ app.get('/estoque/adicionar/:nome/:id/:qtd', function(req, res){
 });
 
 app.get('/estoque/lista', function(req, res){
-    listarProdutos = estoque.lista();
-    res.send('Lista de Produtos: ' + listarProdutos);
+    res.send(estoque.lista());
 });
+
 
 app.get('/estoque/remover/:id', function(req, res){
     let id = req.params.id;
