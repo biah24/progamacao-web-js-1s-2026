@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Agendamento</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <script src="https://jsdelivr.net"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12 text-center mt-3">
+                <h1>Agendamento confirmado!</h1>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <h2>Dados do paciente</h2>
+            </div>
+            <div class="col-6 mt-1">
+                <h3>Nome: {{dados_agendamento.nome}}</h3>
+            </div>
+            <div class="col-6 mt-1">
+                <h3>Sobrenome: {{dados_agendamento.sobrenome}}</h3>
+            </div>
+            <div class="col-6 mt-1">
+                <h3>CPF: {{dados_agendamento.cpf}}</h3>
+            </div>
+            <div class="col-6 mt-1">
+                <h3>Data de nascimento: {{dados_agendamento.data_nascimento}}</h3>
+            </div>
+            <div class="col-6 mt-1">
+                <h3>Telefone: {{dados_agendamento.telefone}}</h3>
+            </div>
+            <div class="col-6 mt-1">
+                <h3>CEP: {{dados_agendamento.cep}}</h3>
+            </div>
+            <div class="col-12 mt-1">
+                <h3>Endereço: {{dados_agendamento.endereco}}</h3>
+            </div>
+        </div>
+     
+         <div class="row mt-3">
+            <div class="col-12">
+                <h2>Dados da consulta</h2>
+            </div>
+            <div class="col-6 mt-1">
+                <h3>Clinica: {{dados_agendamento.clinica}}</h3>
+            </div>
+            <div class="col-6 mt-1">
+                <h3>Especialidade: {{dados_agendamento.especialidade}}</h3>
+            </div>
+            <div class="col-6 mt-1">
+                <h3>Data da consulta: {{dados_agendamento.data_consulta}}</h3>
+            </div>
+            <div class="col-6 mt-1">
+                <h3>Hora da consulta: {{dados_agendamento.hora_consulta}}</h3>
+            </div>
+            <div class="col-12 mt-1">
+                <h3>Observação: {{dados_agendamento.observacao}}</h3>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
