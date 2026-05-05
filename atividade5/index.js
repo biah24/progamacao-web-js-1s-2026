@@ -3,10 +3,10 @@ const mustacheExpress = require('mustache-express');
 const PORT = 8080;
 const app = express();
 
-app.engine('html', mustacheExpress());
-app.set('view engine', 'html');
-app.set('views', __dirname + '/views');
-app.use(express.urlencoded({extended: true}));
+app.engine('html', mustacheExpress());//configurango redenrizador
+app.set('view engine', 'html'); //configurango redenrizador
+app.set('views', __dirname + '/views'); //views, onde passa o caminho html. caminhe do diretorio da aplicacao e concatena, minhas telas estao
+app.use(express.urlencoded({extended: true}));//
 
 app.get("/", (req, res)=>{
     res.render("index.html");
@@ -17,7 +17,10 @@ app.post('/agendamento', (req, res) => {
     let erros = [];
 
     for (const campo in dados_agendamento) {
-        if (campo !== 'observacao' && (!dados_agendamento[campo] || dados_agendamento[campo].trim() === "")) {
+        if (campo !== 'observacao'
+            
+            && (!dados_agendamento[campo] || 
+            dados_agendamento[campo].trim() === "")) {
             erros.push({mensagem: `O campo ${campo} não pode estar vazio!`});
         }
     }
@@ -26,15 +29,16 @@ app.post('/agendamento', (req, res) => {
         const dataAgendamento = new Date(dataString);
         const dataAtual = new Date();
 
-        if (isNaN(dataAgendamento.getTime())) {
-            erros.push({mensagem: "Formato de data ou hora inválido!"});
-        } else if (dataAgendamento <= dataAtual) {
-            erros.push({mensagem: "A data do agendamento deve ser futura!"});
-        }
+        //if (isNaN(dataAgendamento.getTime())) {
+            //erros.push({mensagem: "Formato de data ou hora inválido!"});
+        //} else if (dataAgendamento <= dataAtual) {
+//erros.push({mensagem: "A data do agendamento deve ser futura!"});
+        //}
     }
 
     if (erros.length > 0) {
         res.render("index.html", {erros, dados_agendamento});
+    
     } else {
         console.log(dados_agendamento);
         res.render('agendamento.html', {dados_agendamento});
