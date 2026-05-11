@@ -14,6 +14,7 @@ app.get("/", (req, res)=>{
 
 app.post('/agendamento', (req, res) => {
     let dados_agendamento = req.body;
+
     let erros = [];
 
     for (const campo in dados_agendamento) {
