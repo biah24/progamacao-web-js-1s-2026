@@ -2,6 +2,7 @@ const express = require('express');
 const mustacheExpress = require('mustache-express');
 const PORT = 8080;
 const app = express();
+const db = require('./db');
 
 app.engine('html', mustacheExpress());//configurango redenrizador
 app.set('view engine', 'html'); //configurango redenrizador
@@ -45,7 +46,7 @@ app.post('/agendamento', (req, res) => {
         res.render('agendamento.html', {dados_agendamento});
     }
 });
-
+db.sync();
 app.listen(PORT, ()=>{
     console.log('app rodando na porta ' + PORT);
 });
