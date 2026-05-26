@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-const AgendamentoConsulta = db.define('agendamento_consulta', {
+const Usuario = db.define('usuario', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -12,18 +12,15 @@ const AgendamentoConsulta = db.define('agendamento_consulta', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    sobrenome: {
+    email: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true //n permite emaiil duplicado
     },
-    cpf: {
+    senha: {
         type: Sequelize.STRING,
-        allowNull: false
-    },
-    data_nascimento: {
-        type: Sequelize.DATE,
         allowNull: false
     }
 });
 
-module.exports = AgendamentoConsulta;
+module.exports = Usuario;

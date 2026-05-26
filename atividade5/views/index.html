@@ -17,12 +17,30 @@
             <div class="col-12 text-center mt-3">
                 <h1>Agendamento</h1>
             </div>
+            <div class="col-12">
+                {{#dados_erros.erro_nome}}
+                <div class="alert alert-danger mt-3" role="alert">
+                    O campo <b>NOME</b> não pode ser vazio!
+                </div>
+                {{/dados_erros.erro_nome}}
+                {{#dados_erros.erro_sobrenome}}
+                <div class="alert alert-danger mt-3" role="alert">
+                    O campo <b>SOBRENOME</b> não pode ser vazio!
+                </div>
+                {{/dados_erros.erro_sobrenome}}
+                {{#dados_erros.erro_cpf}}
+                <div class="alert alert-danger mt-3" role="alert">
+                    O campo <b>CPF</b> não pode ser vazio!
+                </div>
+                {{/dados_erros.erro_cpf}}
+                {{#dados_erros.erro_data_nascimento}}
+                <div class="alert alert-danger mt-3" role="alert">
+                    O campo <b>DATA DE NASCIMENTO</b> não pode ser vazio!
+                </div>
+                {{/dados_erros.erro_data_nascimento}}
+            </div>
         </div>
-        {{#erros}}
-        <div class="alert alert-danger mt-3">
-            {{mensagem}}
-        </div>
-            {{/erros}}       
+        
         <form action="/agendamento" method="post">
             <div class="row mt-3">
                 <div class="col-12">
@@ -30,71 +48,24 @@
                 </div>
                 <div class="col-6 mt-1">
                     <label for="nome" class="form-label">Nome:</label>
-                    <input type="text" id="nome" name="nome" class="form-control">
+                    <input type="text" id="nome" name="nome" class="form-control" value="{{dados_form.nome}}">
                 </div>
                 <div class="col-6 mt-1">
                     <label for="sobrenome" class="form-label">Sobrenome:</label>
-                    <input type="text" id="sobrenome" name="sobrenome" class="form-control">
+                    <input type="text" id="sobrenome" name="sobrenome" class="form-control" value="{{dados_form.sobrenome}}">
                 </div>
                 <div class="col-6 mt-1">
                     <label for="cpf" class="form-label">CPF:</label>
-                    <input type="number" id="cpf" name="cpf" class="form-control">
+                    <input type="number" id="cpf" name="cpf" class="form-control" value="{{dados_form.cpf}}">
                 </div>
                 <div class="col-6 mt-1">
                     <label for="data_nascimento" class="form-label">Data de nascimento:</label>
-                    <input type="date" id="data_nascimento" name="data_nascimento" class="form-control">
+                    <input type="date" id="data_nascimento" name="data_nascimento" class="form-control" value="{{dados_form.data_nascimento}}">
                 </div>
-                <div class="col-6 mt-1">
-                    <label for="telefone" class="form-label">Telefone:</label>
-                    <input type="number" id="telefone" name="telefone" class="form-control">
-                </div>
-                <div class="col-6 mt-1">
-                    <label for="cep" class="form-label">CEP:</label>
-                    <input type="number" id="cep" name="cep" class="form-control">
-                </div>
-                <div class="col-6 mt-1">
-                    <label for="endereco" class="form-label">Endereço:</label>
-                    <input type="text" id="endereco" name="endereco" class="form-control">
-                </div>
-                
             </div>
             <div class="row mt-3">
                 <div class="col-12">
                     <h3>Dados da consulta</h3>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-6 mt-1">
-                    <label for="clinica" class="form-label" >Clinica</label>
-                    <select class="form-control" id="clinica" name="clinica">
-                        <option>Vitalis Centro de Saúde</option>
-                        <option>Clínica Essência Saúde</option>
-                        <option>Centro Integrado Vivere</option>
-                        <option>Prosaúde</option>
-                        <option>Clínica Horizonte</option>
-                    </select>
-                </div>
-                <div class="col-6 mt-1">
-                    <label for="especialidade" class="form-label" >Especialidade</label>
-                    <select class="form-control" id="especialidade" name="especialidade">
-                        <option>Clínica Médica</option>
-                        <option>Pediatria</option>
-                        <option>Ginecologia </option>
-                        <option>Neurologia</option>
-                        <option>Endocrinologia</option>
-                    </select>
-                </div>
-                <div class="col-6 mt-1">
-                    <label for="data_consulta" class="form-label">Data da consulta:</label>
-                    <input type="date" id="data_consulta" name="data_consulta" class="form-control">
-                </div>
-                <div class="col-6 mt-1">
-                    <label for="hora_consulta" class="form-label">Hora da consulta:</label>
-                    <input type="time" id="hora_consulta" name="hora_consulta" class="form-control">
-                </div>
-                <div class="col-12 mt-1">
-                    <label for="observacao" class="form-label">Observação:</label>
-                    <textarea id="observacao" name="observacao" class="form-control"></textarea>
                 </div>
             </div>
             <div class="row mt-3">
